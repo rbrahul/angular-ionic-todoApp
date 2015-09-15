@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>AngularJS Todo List</title>
+    
+    
+    
+    
+    
+    
+    
+    
+  </head>
+
+  <body>
+
+    <html ng-app="MyToDoApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Ionic Accordion</title>
+   
+    <link href="https://code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <style>/* Styles go here */
+
+.ion-content{
+  margin-top:50px;
+}
+.completed{
+    text-decoration: line-through;
+}
+.col{
+  padding:0px;
+ }
+.item{
+  padding:3px;
+}
+.task-item{
+  padding:0px;
+  margin:0px;
+}
+ .rb-label{
+      vertical-align:middle;
+      }   
+ </style>
+  </head>
+
+  <body ng-controller="ToDoCtlr">
+    <div class="bar bar-header bar-positive">
+  <h1 class="title">  <i class="icon ion-ios-list-outline "></i>&nbsp;{{ appname }}</h1>
+</div>
+    <div class="ion-content">
+      <div class="row">
+        <div class="col col-90">
+        <input type="text" placeholder="Your Todo" ng-model="task">
+        </div>
+        <div class="col col-10">
+          <button class="button button-small button-positive " ng-click="addToList()"><i class="icon ion-plus"></i></div></div>
+        </div>
+      </div>
+      <!--.row-->
+   <ul class="list">
+
+  <li class="item" ng-repeat="item in todos">
+    <div class="row task-item">
+      <div class="col col-90">
+     <label class="checkbox rb-label">
+       <input type="checkbox" ng-click="changeStatus($index)" ng-checked="item.status=='done'">
+     </label>
+    <span  ng-class="{completed: item.status=='done'}" >{{item.task}}</span>
+      </div>
+     <!-- .col-90-->
+      <div class="col col-10">
+    <a class="button button-small button-clear" ng-click="deleteTask($index)"><i class="icon ion-trash-a"></i></a>
+      </div>
+      <!--.col-10-->
+    </div>
+    <!--.row-->
+  </li>
+     
+    </ul>
+    </div>
+    <!--ion-content-->
+  </body>
+  </html>
+    
+        <script src="js/index.js"></script>
+
+    
+    
+    
+  </body>
+</html>
